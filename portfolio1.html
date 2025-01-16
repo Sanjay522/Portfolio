@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <script src="portfolio.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- <div class="video-container">
+    <video src="138082-768352300_large.mp4" loop muted></video>
+</div> -->
+    <div class="main-body">
+        <div class="body">
+            <nav>
+                <div class="navbar">
+                    <div class="navleft"><a class="anchor1" href="" style="color: #005bb5;"><span
+                                style="color: white;">Sanjay-Gupta</span>.</a>
+                    </div>
+                    <div class="navright">
+                        <!-- <button class="mobile-view">☰</button> -->
+                        <!-- <button><img src= alt=""></button> -->
+
+                        <ul>
+                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>Work</a></li>
+                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>About-me</a></li>
+                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>Contacts</a></li>
+                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>Home</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- <main> -->
+            <div class="info">
+                <div class="personal-info">
+                    <div class="info-line1">front-end developer</div>
+                    <!-- <span>I'm <span style="color: blue;">front-end developer </span><span style="color: white;">and</span> learning back-end developer</span><br><br> -->
+                    <div><span class="info-line2">Hello </span><br><span class="info-line2" style="color: #005bb5;">I'm
+                            Sanjay Gupta</span></div>
+                    <div>Currently learnig Back-end</div>
+                    <span class="line2" style="color: rgb(171, 178, 191,100);">I create responsive website where
+                        technologies meet
+                        creativity</span>
+                    <br>
+                    <button class="contact">Contact me!!</button>
+                </div>
+                <div class="photo">
+                    <!-- <div class="position"> -->
+                    <div class="circle-container">
+                        <div class="circle" id="circle"></div>
+                    </div>
+                    <img class="profile" src="Picsart_24-12-29_15-16-14-224.png" alt="">
+
+                </div>
+                <!-- </main> -->
+            </div>
+
+        </div>
+    </div>
+
+    <div class="about-us">
+        <div class="about-tag">
+            <div class="about-us-detail">About ME</div>
+            <div class="about-line"></div>
+        </div>
+        <div class="about-us-para">
+            <div class="project1">
+                <div class="about-line-1">Hello,i'm sanjay</div>
+                <div class="about-line-2">I'm a self-taught front-end developer based in India. I can develop responsive
+                    websites from scratch and raise them into modern user-friendly web experience.</div>
+                <div class="about-line-3">Transforming my creativity and knowledge into a websites has been my passion
+                    for over a year. I always strive to learn about the newest technologies and frameworks.</div>
+                <div><button class="about-button">Project</button></div>
+            </div>
+            <div class="project1 skill">
+                <div class="skill-1">My Toolkit</div>
+                <div class="skill-2">
+                    <span class="toolkit">JavaScript</span>
+                    <span class="toolkit">TypeScript</span>
+                    <span class="toolkit">CSS</span>
+                    <span class="toolkit">HTML</span>
+                    <span class="toolkit">SAAS</span>
+                    <span class="toolkit">React</span>
+                    <span class="toolkit">Figma</span>
+                    <span class="toolkit">Git</span>
+                    <span class="toolkit">SEO</span>
+                    <span class="toolkit">TailWindCSS</span>
+                    <span class="toolkit">Chakra</span>
+                    <span class="toolkit">Linux</span>
+                    <span class="toolkit">Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="project">
+        <div class="project-word">Project</div>
+        <div class="project-line"></div>
+        <div class="project-1">
+            <div class="project-1-detail">
+                <div class="project-1-line-1">BMW Clone</div>
+                <div class="project-1-line-2">BMW website clone with some extra features</div>
+                <div class="project-1-tool-kit">
+                    <span class="project-1-tool">HTML</span>
+                    <span class="project-1-tool">CSS</span>
+                    <span class="project-1-tool">JavaScript</span>
+                    <span class="project-1-tool">Vercel API</span>
+                </div>
+                <div><button class="project-1-live-button">Check it</button></div>
+            </div>
+            <div><img class="project-1-image" src="Screenshot 2025-01-16 014105.jpg" alt="">
+            </div>
+        </div>
+
+        <div></div>
+    </div>
+</body>
+<script>const circleContainer = document.getElementById('circle');
+
+    const totalDots = 16;
+    const evenGap = 20;
+    const oddGap = 10;
+
+    let currentAngle = 0;
+
+    for (let i = 1; i <= totalDots; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        circleContainer.appendChild(dot);
+
+        const x = 160 + 130 * Math.cos((currentAngle * Math.PI) / 180) - 10;
+        const y = 150 + 140 * Math.sin((currentAngle * Math.PI) / 180) - 10;
+
+        dot.style.left = `${x}px`;
+        dot.style.top = `${y}px`;
+
+        currentAngle += i % 2 === 0 ? evenGap : oddGap;
+    }
+    let rotation = 0;
+
+    function animate() {
+        rotation += 1;
+        circleContainer.style.transform = `rotate(${rotation}deg)`;
+        requestAnimationFrame(animate);
+    }
+
+    animate();</script>
+
+</html>
