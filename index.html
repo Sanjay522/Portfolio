@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
-    <script src="portfolio.js"></script>
+    <link rel="stylesheet" media="screen and (width:430px)" href="phone.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
                                 style="color: white;">Sanjay-Gupta</span>.</a>
                     </div>
                     <div class="navright">
-                        <!-- <button class="mobile-view">☰</button> -->
+                        <button class="mobile-view">☰</button>
                         <!-- <button><img src= alt=""></button> -->
 
                         <ul>
@@ -120,36 +120,69 @@
 
         <div></div>
     </div>
+    <div class="form-div">
+        <div class="form-1">
+            <div class="contact-me">
+                <div class="contact-word">Get in touch</div>
+                <div class="contact-line"></div>
+            </div>
+            <div class="form" id="form1">
+
+                <div class="get-in-touch">
+                    <div class="contact-info">
+                        <h2 class="head-1">Contact Me</h2>
+                        <div class="contact-info">
+                            <div class="conatct-icon icon1"><a href=""><img class="icon" src="14-146161_location-icon-png.png" alt=""></a>
+                                <p>Address : Om ji compound , bharat ekta seva society , rathodi village , marve road ,
+                                    malad west , mumbai - 400095 , Maharashtra</p>
+                            </div>
+                            <div class="conatct-icon icon2"><a href="">
+                                    <img class="icon" src="white-phone-icon-png-5.png" alt=""></a>
+                                <p>Phone : 7710865713</p>
+                            </div>
+                            <div class="conatct-icon icon3"><a href=""><img class="icon" src="email-1.png" alt=""></a>
+                                <p>Email : sg917226@gmail.com</p>
+                            </div>
+                            <div class="conatct-icon icon4"><a href=""><img class="icon" src="website.png" alt=""></a>
+                                <p>Website : <a href="">sanjay-mk2u3ecek-sanjay-guptas-projects-8b51dcef.vercel.app</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="" class="form-detail">
+                    <label class="email-label" for="email">Email</label>
+                    <input type="text" name="email" id="email" placeholder="Your email?">
+                    <label class="mobile-label" for="mobile">Mobile</label>
+                    <input type="text" name="mobile" id="mobile" placeholder="Your mobile no.">
+                    <label class="message-label" for="message">Message</label>
+
+                    <textarea name="" id="message" placeholder="Lets talk about something, shall we?"></textarea>
+
+                    <div class="button-1"><button type="submit" class="submit">Submit</button></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="line"></div>
+        <div class="footer-data">
+            <div>
+                <p class="footer-para"><span style="font-weight: bold;color: white;">Sanjay</span><span
+                        style="color: rgb(171, 178, 191,100);"> :- sg917226@gmail.com</span></p>
+                <p class="footer-para" style="color: white;">Front-end web developer</p>
+            </div>
+            <div>
+                <div class="Media" style="font-weight: bold;color: white;">Media</div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div class="Copyright-1">© Copyright 2025. Made by Sanjay</div>
+    </div>
 </body>
-<script>const circleContainer = document.getElementById('circle');
-
-    const totalDots = 16;
-    const evenGap = 20;
-    const oddGap = 10;
-
-    let currentAngle = 0;
-
-    for (let i = 1; i <= totalDots; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        circleContainer.appendChild(dot);
-
-        const x = 160 + 130 * Math.cos((currentAngle * Math.PI) / 180) - 10;
-        const y = 150 + 140 * Math.sin((currentAngle * Math.PI) / 180) - 10;
-
-        dot.style.left = `${x}px`;
-        dot.style.top = `${y}px`;
-
-        currentAngle += i % 2 === 0 ? evenGap : oddGap;
-    }
-    let rotation = 0;
-
-    function animate() {
-        rotation += 1;
-        circleContainer.style.transform = `rotate(${rotation}deg)`;
-        requestAnimationFrame(animate);
-    }
-
-    animate();</script>
+<script src="portfolio1.js"></script>
 
 </html>
