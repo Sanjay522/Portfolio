@@ -4,185 +4,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="portfolio.css">
-    <link rel="stylesheet" media="screen and (width:430px)" href="phone.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <title>Sanjay Gupta - Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: rgb(8, 9, 43);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background: linear-gradient(135deg, #000000, #001f3f, #093358);
+            padding: 1rem 0;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #005bb5;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #005bb5;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero section styles */
+        .hero {
+            background: linear-gradient(135deg, #000000, #001f3f, #093358);
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            display: flex;
+            height: 80svh;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+
+        .profile-circle {
+            width: 320px;
+            height: 320px;
+            border: 10px dashed #005bb5;
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* About section styles */
+        .about {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title .underline {
+            height: 4px;
+            width: 50px;
+            background-color: #005bb5;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .about-text,
+        .skills {
+            flex: 1;
+            padding: 0 1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: #0074d9;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Projects section styles */
+        .projects {
+            padding: 4rem 0;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #000000, #001f3f, #093358);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .project-info {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .project-image {
+            flex: 2;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background-color: #4b6c88;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact section styles */
+        .contact {
+            padding: 4rem 0;
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            background-color: #0074d9;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .contact-form {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            background-color: #0e0e38;
+            border: none;
+            border-radius: 4px;
+            color: white;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #080928;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-line {
+            height: 1px;
+            background-color: #005bb5;
+            margin-bottom: 1rem;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            background-color: #0074d9;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #005bb5;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content,
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .hero-image,
+            .about-text,
+            .skills,
+            .contact-info,
+            .contact-form {
+                margin-top: 2rem;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-info,
+            .project-image {
+                flex: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <div class="video-container">
-    <video src="138082-768352300_large.mp4" loop muted></video>
-</div> -->
-    <div class="main-body">
-        <div class="body">
+    <header class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">Sanjay-Gupta<span>.</span></div>
             <nav>
-                <div class="navbar">
-                    <div class="navleft"><a class="anchor1" href="" style="color: #005bb5;"><span
-                                style="color: white;">Sanjay-Gupta</span>.</a>
-                    </div>
-                    <div class="navright">
-                        <button class="mobile-view">☰</button>
-                        <!-- <button><img src= alt=""></button> -->
-
-                        <ul>
-                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>Work</a></li>
-                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>About-me</a></li>
-                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>Contacts</a></li>
-                            <li><a class="anchor1" href=""><span style="color: #005bb5">#</span>Home</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <button class="mobile-menu-btn">☰</button>
+                <ul class="nav-links">
+                    <li><a href="#work"><span style="color: #005bb5;">#</span>Work</a></li>
+                    <li><a href="#about"><span style="color: #005bb5;">#</span>About-me</a></li>
+                    <li><a href="#contact"><span style="color: #005bb5;">#</span>Contacts</a></li>
+                    <li><a href="#"><span style="color: #005bb5;">#</span>Home</a></li>
+                </ul>
             </nav>
-            <!-- <main> -->
-            <div class="info">
-                <div class="personal-info">
-                    <div class="info-line1">front-end developer</div>
-                    <!-- <span>I'm <span style="color: blue;">front-end developer </span><span style="color: white;">and</span> learning back-end developer</span><br><br> -->
-                    <div><span class="info-line2">Hello </span><br><span class="info-line2" style="color: #005bb5;">I'm
-                            Sanjay Gupta</span></div>
-                    <div>Currently learnig Back-end</div>
-                    <span class="line2" style="color: rgb(171, 178, 191,100);">I create responsive website where
-                        technologies meet
-                        creativity</span>
-                    <br>
-                    <button class="contact">Contact me!!</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p>front-end developer</p>
+                    <h1>Hello <br><span style="color: #005bb5;">I'm Sanjay Gupta</span></h1>
+                    <p>Currently learning Back-end</p>
+                    <p style="color: rgb(171, 178, 191);">I create responsive websites where technologies meet
+                        creativity</p>
+                    <a href="#contact" class="btn">Contact me!!</a>
                 </div>
-                <div class="photo">
-                    <!-- <div class="position"> -->
-                    <div class="circle-container">
-                        <div class="circle" id="circle"></div>
+                <div class="hero-image">
+                    <div class="profile-circle"></div>
+                    <img src="Picsart_24-12-29_15-16-14-224.png" alt="Sanjay Gupta" class="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About ME</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Hello, I'm Sanjay</h3>
+                        <p>I'm a self-taught front-end developer based in India. I can develop responsive websites from
+                            scratch and raise them into modern user-friendly web experiences.</p>
+                        <p>Transforming my creativity and knowledge into websites has been my passion for over a year. I
+                            always strive to learn about the newest technologies and frameworks.</p>
+                        <a href="#work" class="btn">Projects</a>
                     </div>
-                    <img class="profile" src="Picsart_24-12-29_15-16-14-224.png" alt="">
-
-                </div>
-                <!-- </main> -->
-            </div>
-
-        </div>
-    </div>
-
-    <div class="about-us">
-        <div class="about-tag">
-            <div class="about-us-detail">About ME</div>
-            <div class="about-line"></div>
-        </div>
-        <div class="about-us-para">
-            <div class="project1">
-                <div class="about-line-1">Hello,i'm sanjay</div>
-                <div class="about-line-2">I'm a self-taught front-end developer based in India. I can develop responsive
-                    websites from scratch and raise them into modern user-friendly web experience.</div>
-                <div class="about-line-3">Transforming my creativity and knowledge into a websites has been my passion
-                    for over a year. I always strive to learn about the newest technologies and frameworks.</div>
-                <div><button class="about-button">Project</button></div>
-            </div>
-            <div class="project1 skill">
-                <div class="skill-1">My Toolkit</div>
-                <div class="skill-2">
-                    <span class="toolkit">JavaScript</span>
-                    <span class="toolkit">TypeScript</span>
-                    <span class="toolkit">CSS</span>
-                    <span class="toolkit">HTML</span>
-                    <span class="toolkit">SAAS</span>
-                    <span class="toolkit">React</span>
-                    <span class="toolkit">Figma</span>
-                    <span class="toolkit">Git</span>
-                    <span class="toolkit">SEO</span>
-                    <span class="toolkit">TailWindCSS</span>
-                    <span class="toolkit">Chakra</span>
-                    <span class="toolkit">Linux</span>
-                    <span class="toolkit">Bootstrap</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="project">
-        <div class="project-word">Project</div>
-        <div class="project-line"></div>
-        <div class="project-1">
-            <div class="project-1-detail">
-                <div class="project-1-line-1">BMW Clone</div>
-                <div class="project-1-line-2">BMW website clone with some extra features</div>
-                <div class="project-1-tool-kit">
-                    <span class="project-1-tool">HTML</span>
-                    <span class="project-1-tool">CSS</span>
-                    <span class="project-1-tool">JavaScript</span>
-                    <span class="project-1-tool">Vercel API</span>
-                </div>
-                <div><button class="project-1-live-button"><a href="bmw-clone-6volu4qm5-sanjay-guptas-projects-8b51dcef.vercel.app">Check it</a></button></div>
-            </div>
-            <div><img class="project-1-image" src="Screenshot 2025-01-16 014105.jpg" alt="">
-            </div>
-        </div>
-
-        <div></div>
-    </div>
-    <div class="form-div">
-        <div class="form-1">
-            <div class="contact-me">
-                <div class="contact-word">Get in touch</div>
-                <div class="contact-line"></div>
-            </div>
-            <div class="form" id="form1">
-
-                <div class="get-in-touch">
-                    <div class="contact-info">
-                        <h2 class="head-1">Contact Me</h2>
-                        <div class="contact-info">
-                            <div class="conatct-icon icon1"><a href=""><img class="icon" src="14-146161_location-icon-png.png" alt=""></a>
-                                <p>Address : Om ji compound , bharat ekta seva society , rathodi village , marve road ,
-                                    malad west , mumbai - 400095 , Maharashtra</p>
-                            </div>
-                            <div class="conatct-icon icon2"><a href="">
-                                    <img class="icon" src="white-phone-icon-png-5.png" alt=""></a>
-                                <p>Phone : 7710865713</p>
-                            </div>
-                            <div class="conatct-icon icon3"><a href=""><img class="icon" src="email-1.png" alt=""></a>
-                                <p>Email : sg917226@gmail.com</p>
-                            </div>
-                            <div class="conatct-icon icon4"><a href=""><img class="icon" src="website.png" alt=""></a>
-                                <p>Website : <a href="">sanjay-mk2u3ecek-sanjay-guptas-projects-8b51dcef.vercel.app</a>
-                                </p>
-                            </div>
+                    <div class="skills">
+                        <h3>My Toolkit</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">SASS</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">SEO</span>
+                            <span class="skill-tag">TailwindCSS</span>
+                            <span class="skill-tag">Chakra</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Bootstrap</span>
                         </div>
                     </div>
                 </div>
-                <form action="" class="form-detail">
-                    <label class="email-label" for="email">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Your email?">
-                    <label class="mobile-label" for="mobile">Mobile</label>
-                    <input type="text" name="mobile" id="mobile" placeholder="Your mobile no.">
-                    <label class="message-label" for="message">Message</label>
-
-                    <textarea name="" id="message" placeholder="Lets talk about something, shall we?"></textarea>
-
-                    <div class="button-1"><button type="submit" class="submit">Submit</button></div>
-
-                </form>
             </div>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="line"></div>
-        <div class="footer-data">
-            <div>
-                <p class="footer-para"><span style="font-weight: bold;color: white;">Sanjay</span><span
-                        style="color: rgb(171, 178, 191,100);"> :- sg917226@gmail.com</span></p>
-                <p class="footer-para" style="color: white;">Front-end web developer</p>
-            </div>
-            <div>
-                <div class="Media" style="font-weight: bold;color: white;">Media</div>
-                <div>
+        </section>
 
+        <section id="work" class="projects">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Projects</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>BMW Clone</h3>
+                        <p>BMW website clone with some extra features</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Vercel API</span>
+                        </div>
+                        <a href="https://bmw-clone-6volu4qm5-sanjay-guptas-projects-8b51dcef.vercel.app" class="btn"
+                            target="_blank" rel="noopener noreferrer">Check it</a>
+                    </div>
+                    <div class="project-image">
+                        <img src="Screenshot 2025-01-16 014105.jpg" alt="BMW Clone Project">
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Get in touch</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Contact Me</h3>
+                        <p><img src="14-146161_location-icon-png.png" alt="Location" width="20"> Address: Om ji
+                            compound, bharat ekta seva society, rathodi village, marve road, malad west, mumbai -
+                            400095, Maharashtra</p>
+                        <p><img src="white-phone-icon-png-5.png" alt="Phone" width="20"> Phone: 7710865713</p>
+                        <p><img src="email-1.png" alt="Email" width="20"> Email: sg917226@gmail.com</p>
+                        <p><img src="website.png" alt="Website" width="20"> Website: <a
+                                href="https://sanjay-mk2u3ecek-sanjay-guptas-projects-8b51dcef.vercel.app"
+                                target="_blank"
+                                rel="noopener noreferrer">sanjay-mk2u3ecek-sanjay-guptas-projects-8b51dcef.vercel.app</a>
+                        </p>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your email?">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile</label>
+                            <input type="tel" id="mobile" placeholder="Your mobile no.">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="6"
+                                placeholder="Let's talk about something, shall we?"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-line"></div>
+            <div class="footer-content">
+                <div>
+                    <p><strong>Sanjay</strong>: sg917226@gmail.com</p>
+                    <p>Front-end web developer</p>
+                </div>
+                <div>
+                    <h4>Media</h4>
+                    <!-- Add social media icons here -->
+                </div>
+            </div>
+            <p class="copyright">© Copyright 2025. Made by Sanjay</p>
         </div>
-        <div class="Copyright-1">© Copyright 2025. Made by Sanjay</div>
-    </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+    </script>
 </body>
-<script src="portfolio.js"></script>
 
 </html>
